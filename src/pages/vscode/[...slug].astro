@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import VscodeLayout from '../../layouts/VscodeLayout.astro';
+export async function getStaticPaths() {
+  const vscode = await getCollection('vscode');
+  const paths = vscode.map(page => {
+    return {
+      params: { slug: page.slug },
+      props: { page },
+
+      trailingSlash: false,
+    };
+  });
+  return paths;
+}
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+<VscodeLayout frontmatter={page.data}>
+  <Content>
+</VscodeLayout>

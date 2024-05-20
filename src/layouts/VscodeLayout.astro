@@ -1,0 +1,66 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <div class="max-w-xl  px-8 py-12 lg:py-32">
+      <h1 class="text-2xl text-black">
+        {frontmatter.themeName}
+      </h1>
+      <div class="mt-12 prose-styles">
+        <p>{frontmatter.description}</p>
+        <dl class="divide-y dark:divide-white/10">
+          <!-- Dynamically render GitHub links -->
+          {
+            frontmatter.github && (
+              <div class="sm:grid sm:grid-cols-3 items-start">
+                <p>
+                  Github
+                </p>
+                <ul class="lg:col-span-2">
+                  {frontmatter.github.map((repo) => (
+                    <li>
+                      <a
+                        href={repo.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                          >
+                        {repo.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+          {
+            frontmatter.previews && (
+              <div class="sm:grid sm:grid-cols-3 items-start">
+                <p>
+                Preview
+                </p>
+                <ul class="lg:col-span-2">
+                  {frontmatter.previews.map((preview) => (
+                    <li>
+                      <a
+                        href={preview.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                          >
+                        {preview.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </dl>
+        <slot />
+      </div>
+    </div>
+
+  </section>
+</BaseLayout>
