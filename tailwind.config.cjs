@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      mono: ["IBM Plex Mono", ...defaultTheme.fontFamily.sans],
     },
     colors: {
       white: colors.white,

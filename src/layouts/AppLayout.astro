@@ -1,0 +1,20 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter, sections } = Astro.props;
+---
+
+<BaseLayout>
+  <section>
+    <div class="max-w-xl mx-auto px-8 py-12 lg:py-32">
+      <h1 class="text-2xl text-black">
+        {frontmatter.pageName}
+      </h1>
+      <div class="mt-12 prose-styles">
+        <p>{frontmatter.description}</p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto">
+
+    </div>
+  </section>
+</BaseLayout>

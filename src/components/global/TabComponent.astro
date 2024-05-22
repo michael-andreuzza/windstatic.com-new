@@ -1,0 +1,76 @@
+<section
+  x-data="tabs"
+  class="not-prose">
+  <div class="relative h-[30rem] overflow-hidden rounded-2xl border">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 z-10 m-[2px] md:left-auto">
+      <div
+        class="flex items-center justify-end rounded-t-[10px] bg-white px-3 py-1 backdrop-blur-sm md:m-1 md:rounded-lg">
+        <button
+          @click="tab = 'preview'"
+          :class="tab === 'preview' ? 'bg-black/5' : 'bg-black/0'"
+          class="backdrop-blur pointer-events-auto mr-1 flex rounded-md px-4 py-1 text-sm text-black transition focus-visible:outline-none focus-visible:ring focus-visible:ring-black/50">
+          Preview
+        </button>
+        <button
+          @click="tab = 'code'"
+          :class="tab === 'code' ? 'bg-black/5' : 'bg-black/0'"
+          class="pointer-events-auto flex rounded-md px-4 py-1 text-sm text-black transition focus-visible:outline-none focus-visible:ring focus-visible:ring-black/50">
+          Code
+        </button>
+        <div class="mx-1 h-4 w-[2px] bg-black/10"></div>
+        <button
+          @click="copyToClipboard"
+          class="pointer-events-auto relative flex rounded-md px-4 py-1 text-sm text-black transition focus-visible:outline-none focus-visible:ring focus-visible:ring-black/50">
+          <span
+            x-text="copyButtonText"
+            class="transition"
+            >Copy</span
+          >
+          <span
+            class="opacity-0 absolute inset-0 flex items-center justify-center transition"
+            >Copied!</span
+          >
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        x-show="tab === 'preview'"
+        class="absolute inset-0 mt-12"
+        :style="{ height: previewHeight + 'px' }">
+        <iframe
+          src="https://lexingtonthemes.com/info/navy/"
+          class="h-full w-full"
+        ></iframe>
+      </div>
+      <div
+        x-show="tab === 'code'"
+        class="not-prose relative h-full w-full overflow-scroll px-8 py-6 transition">
+        <pre><code id="codeBlock">
+&lt;iframe src=&quot;https://lexingtonthemes.com/info/navy/&quot; class=&quot;h-full w-full&quot;&gt;&lt;/iframe&gt;
+        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("tabs", () => ({
+      tab: "preview",
+      copyButtonText: "Copy",
+      previewHeight: 480,
+      resizing: false,
+      copyToClipboard() {
+        const code = document.getElementById("codeBlock").textContent.trim();
+        navigator.clipboard.writeText(code).then(() => {
+          this.copyButtonText = "Copied!";
+          setTimeout(() => {
+            this.copyButtonText = "Copy";
+          }, 2000);
+        });
+      },
+    }));
+  });
+</script>
