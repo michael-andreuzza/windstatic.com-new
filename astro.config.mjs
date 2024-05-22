@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
+
+// https://astro.build/config
 export default defineConfig({
   markdown: {
     drafts: true,
@@ -14,6 +16,6 @@ export default defineConfig({
     skipInline: false,
     drafts: true
   },
-  site: 'https://michaelandreuzza.com',
+  site: 'https://windstatic.com',
   integrations: [tailwind(), sitemap(), mdx()]
 });

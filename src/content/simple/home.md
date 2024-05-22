@@ -60,43 +60,43 @@ page: Home
   </div>
 </div>
 
-
 # Build your layout library
 
 windstatic is a set of elements, templates & layouts made with Tailwind CSS and Alpine.js
 
 Discover a collection of components ready to be seamlessly integrated into your applications with just a simple copy and paste.
 
-----
+---
 
-### sections
+### blocks
 
-- [heros](/sections/heros)
-- [features](/sections/features)
-- [grids](/sections/grids)
-- [footers](/sections/footers)
-- [call to action ](/sections/cta)
-- [testimonials](/sections/testimonials)
-- [logoclouds](/sections/heros)
-- [gallery](/sections/logos)
-- [pricing sections](/sections/pricing)
-- [faq sections](/sections/faq)
-- [team sections](/sections/team)
-- [blog sections](/sections/blog)
-- [newsletter sections](/sections/newsletter)
-- [error sections](/sections/error)
+- [faq](/blocks/faq)
+- [auth](/blocks/auth)
+- [blog](/blocks/blog)
+- [team](/blocks/team)
+- [grids](/blocks/grids)
+- [error](/blocks/error)
+- [heros](/blocks/heros)
+- [gallery](/blocks/logos)
+- [pricing](/blocks/pricing)
+- [footers](/blocks/footers)
+- [features](/blocks/features)
+- [newsletter ](/blocks/newsletter)
+- [logoclouds](/blocks/logoclouds)
+- [testimonials](/blocks/testimonials)
+- [call to action](/blocks/cta)
 
 ### navigation
 
-- [navbars](/sections/navbars)
-- [flyouts](/sections/flyouts)
-- [sidebars](/sections/sidebars)
-- [breadcrumbs](/sections/breadcrumbs)
-- [tabs](/sections/tabs)
-- [pagination](/sections/pagination)
-- [vertical navigation](/sections/vertical-navigation)
-- [steps](/sections/steps)
+- [tabs](/navigation/tabs)
+- [steps](/navigation/steps)
+- [flyouts](/navigation/flyouts)
+- [navbars](/navigation/navbars)
+- [sidebars](/navigation/sidebars)
+- [pagination](/navigation/pagination)
+- [breadcrumbs](/blocks/breadcrumbs)
+- [vertical navigation](/navigation/vertical-navigation)
 
-### forms
+### components
 
-- [auth](/sections/auth)
+- [buttons](/components/buttons)
